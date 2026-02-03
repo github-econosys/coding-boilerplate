@@ -1,0 +1,27 @@
+{
+  "name": "vite-boilerplate-php-export",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "run-p watch start",
+    "start": "vite --host --port 3000",
+    "watch": "vite build --watch",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "glob": "^10.3.10",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.83.4",
+    "sharp": "^0.34.5",
+    "vite": "^6.0.7",
+    "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-sass-glob-import": "^6.0.2"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ]
+}

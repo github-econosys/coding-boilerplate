@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/components/head.php'); ?>
+</head>
+
+<body>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/components/header.php'); ?>
+
+    <main class="l-main">
+        <section class="p-news-detail">
+            <div class="l-container">
+                <h2>お知らせ詳細</h2>
+                <article>
+                    <time>2024.01.01</time>
+                    <h3>お知らせタイトル</h3>
+                    <p>ここにお知らせの詳細内容が入ります。</p>
+                    <a href="/news/">一覧へ戻る</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/components/footer.php'); ?>
+</body>
+
+</html>

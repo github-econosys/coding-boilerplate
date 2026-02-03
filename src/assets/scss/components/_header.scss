@@ -1,0 +1,66 @@
+// 変数は style.scss で一括読み込みされます
+// @use '/src/assets/scss/foundation/variable' as *;
+
+.l-header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+
+    &__inner {
+        max-width: $bp-lg;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px; // 固定高さで見栄えを整える
+    }
+
+    &__logo a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.5rem;
+        letter-spacing: 0.05em;
+        transition: opacity 0.3s;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px; // メニュー間隔を広げる
+        margin: 0;
+        padding: 0;
+
+        li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: #fff;
+                transition: width 0.3s ease;
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
