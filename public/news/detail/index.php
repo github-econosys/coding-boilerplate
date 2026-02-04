@@ -1,3 +1,4 @@
+<?php $page_title = "お知らせ詳細 | Site Title"; $page_description = "お知らせの詳細ページです。"; ?>
 <!DOCTYPE html>
 <html lang="ja">
 

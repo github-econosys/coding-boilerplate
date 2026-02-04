@@ -1,3 +1,4 @@
+<?php $page_title = "ページが見つかりません | Site Title"; $page_description = "ディスクリプションが入ります。"; ?>
 <!DOCTYPE html>
 <html lang="ja">
 

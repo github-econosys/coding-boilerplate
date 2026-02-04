@@ -1,3 +1,4 @@
+<?php $page_title = "お問い合わせ | Site Title"; $page_description = "お問い合わせはこちらから。"; ?>
 <!DOCTYPE html>
 <html lang="ja">
 

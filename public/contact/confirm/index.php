@@ -1,3 +1,4 @@
+<?php $page_title = "お問い合わせ確認 | Site Title"; $page_description = "ディスクリプションが入ります。"; ?>
 <!DOCTYPE html>
 <html lang="ja">
 

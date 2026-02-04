@@ -137,6 +137,71 @@ const pathRewriter = (command) => {
     };
 };
 
+// メタタグ用プラグイン
+const htmlMetaPlugin = (command) => {
+    return {
+        name: 'html-meta-transform',
+        transformIndexHtml: {
+            order: 'post', // include展開後に実行
+            handler(html, ctx) {
+                // meta.jsonを読み込み
+                const metaConfigPath = path.resolve(__dirname, 'src/config/meta.json');
+                let metaConfig = {};
+                try {
+                    const fileContent = fs.readFileSync(metaConfigPath, 'utf-8');
+                    metaConfig = JSON.parse(fileContent);
+                } catch (e) {
+                    console.warn(`[htmlMetaPlugin] Failed to load meta.json: ${e.message}`);
+                }
+
+                // 現在のファイルパスから設定キーを特定
+                const root = path.resolve(__dirname, 'src');
+                const relativePath = '/' + path.relative(root, ctx.filename).replace(/\\/g, '/');
+
+                const globalMeta = metaConfig.global || {};
+                const pageMeta = metaConfig.pages?.[relativePath];
+
+                // タイトル構築ロジック
+                const globalTitle = globalMeta.title || '';
+                const separator = globalMeta.separator || ' | ';
+                const pageTitle = pageMeta?.title || '';
+
+                let finalTitle = globalTitle;
+                if (pageTitle && pageTitle !== globalTitle) {
+                    finalTitle = `${pageTitle}${separator}${globalTitle}`;
+                }
+
+                // ディスクリプション
+                const description = pageMeta?.description || globalMeta.description || '';
+
+                // 開発時 (serve) : 値を直接埋め込む
+                if (command === 'serve') {
+                    return html.replace(/\{\{\s*title\s*\}\}/g, finalTitle)
+                        .replace(/\{\{\s*description\s*\}\}/g, description);
+                }
+
+                // ビルド時 (build) : PHP変数として処理
+                else {
+                    // 1. 各ページファイル: 変数定義を冒頭に挿入
+                    if (pageMeta) {
+                        // PHP変数を定義
+                        const phpVars = `<?php $page_title = "${finalTitle}"; $page_description = "${description}"; ?>\n`;
+                        html = phpVars + html;
+                    }
+
+                    // 2. プレースホルダーを含むファイル (head.html等): PHP echo文に置換
+                    // グローバルデフォルトをフォールバックとして使用
+                    const defaultTitle = globalMeta.title || '';
+                    const defaultDesc = globalMeta.description || '';
+
+                    return html.replace(/\{\{\s*title\s*\}\}/g, `<?php echo $page_title ?? '${defaultTitle}'; ?>`)
+                        .replace(/\{\{\s*description\s*\}\}/g, `<?php echo $page_description ?? '${defaultDesc}'; ?>`);
+                }
+            }
+        }
+    };
+};
+
 // Vite設定
 export default defineConfig(({ command }) => ({
     root: 'src',
@@ -191,7 +256,8 @@ export default defineConfig(({ command }) => ({
     plugins: [
         sassGlobImports(),
         htmlIncludes(command),
-        pathRewriter(command), // パス書き換えプラグイン追加
+        htmlMetaPlugin(command), // メタタグ書き換え
+        pathRewriter(command), // パス書き換え
         phpRenamePlugin(),
         ViteImageOptimizer({
             png: { quality: 80 },
