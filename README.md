@@ -12,7 +12,11 @@ npmのみで動作する、静的コーディング用ボイラープレート�
 project-root/
 ├── src/                # 開発ディレクトリ
 │   ├── assets/
-│   │   ├── scss/       # SCSS (foundation, layout, project, components)
+│   │   ├── scss/       # SCSS (FLOCSS構成)
+│   │   │   ├── foundation/ # 変数, Mixin, リセット
+│   │   │   ├── layout/     # ヘッダー, フッターなど
+│   │   │   ├── project/    # ページ固有スタイル
+│   │   │   └── components/ # 共通パーツのスタイル
 │   │   └── js/         # JavaScript
 │   ├── components/     # 共通パーツ (<include>用)
 │   ├── config/         # 設定ファイル (meta.json)
@@ -20,8 +24,45 @@ project-root/
 │   ├── news/           # お知らせページ
 │   └── index.html      # トップページ
 ├── static/             # 静的素材 (favicon, imagesなど)
+│   └── (ビルド時に public/ へそのままコピーされます)
 └── public/             # 【自動生成】納品用ディレクトリ (ビルド時に生成)
 ```
+
+## SCSS設計 (FLOCSSベース)
+
+`src/assets/scss/style.scss` で一括管理していますが、各ディレクトリの役割は以下の通りです。
+
+- **foundation**: `_variable.scss` (変数), `_mixin.scss`, `_base.scss` (リセットCSS)
+- **layout**: ヘッダー、フッター、サイドバーなど、共通のレイアウト枠。
+- **project**: 各ページ固有のスタイル。`project` 配下のファイルは `style.scss` で自動的に読み込まれます。
+- **components**: ボタン、カードなど、再利用可能なパーツ。
+- **utility**: `u-mb-20`, `u-hidden-sp` など、単一のスタイル調整用クラス。
+
+### 画像・静的ファイルの扱い
+
+> [!CAUTION]
+> **【重要】Gulp経験者の方へ**
+> Gulp環境では `src/images` に画像を置くのが一般的でしたが、**本環境(Vite)では `static/` フォルダ配下に置いてください。**
+> `src` に画像を置くと、ビルド時にファイル名が変わったり、ディレクトリ構造が平坦化されて消失する恐れがあります。
+
+### `src/` 内に置くもの
+- SCSSやJSから参照される画像やフォント。
+- バンドラーによって処理（ファイル名ハッシュ化やインライン化など）が必要な場合。
+- **※現在の設定では、画像類は `static` 推奨です。**
+
+### `static/` 内に置くもの
+- `<img>` タグで直接読み込む画像 (`<img src="/assets/images/logo.png">` など)。
+- favicon や robots.txt。
+- ビルド時に `public/` ディレクトリにそのまま構造を保ってコピーされます。
+
+**推奨ディレクトリ構成:**
+```
+static/
+└── assets/
+    └── images/
+        └── (ここに画像を配置)
+```
+※これにより、`src/assets` 由来のファイルとURLパスの見た目を統一できます。
 
 ## インストール
 
