@@ -4,33 +4,34 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Biz UDPGothic", sans-serif;
-    color: $color-text;
-    margin: 0;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-
-    /* Sticky Footer Setup */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  /* Sticky Footer Setup */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family:
+    'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Biz UDPGothic',
+    sans-serif;
+  line-height: 1.6;
+  color: $color-text;
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: bottom;
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
 }
 
 a {
-    color: inherit;
-    transition: opacity 0.3s;
+  color: inherit;
+  transition: opacity 0.3s;
 
-    &:hover {
-        opacity: 0.7;
-    }
+  &:hover {
+    opacity: 0.7;
+  }
 }

@@ -1,18 +1,18 @@
 @charset "UTF-8";
 
 // 1. Foundation (変数, Mixins, リセット)
-@import "foundation/variable";
-@import "foundation/mixin";
-@import "foundation/base";
+@import 'foundation/variable';
+@import 'foundation/mixin';
+@import 'foundation/base';
 
 // 2. Layout (共通レイアウト)
-@import "layout/common";
+@import 'layout/common';
 
 // 3. Project (ページ固有スタイルのロジック)
-@import "project/**/*.scss";
+@import 'project/**/*';
 
 // 4. Components (共通コンポーネント: assets/scss/components配下)
-@import "components/**/*.scss";
+@import 'components/**/*';
 
 // 5. Utility (ユーティリティクラス)
-@import "utility/**/*.scss";
+@import 'utility/**/*';

@@ -1,23 +1,22 @@
 // @use defined separately in style.scss
 
-
 /* PC/SP 表示切り替え */
 .u-hidden-sp {
+  display: block;
+
+  @include mq($bp-md) {
     display: block;
+  }
 
-    @include mq($bp-md) {
-        display: block;
-    }
-
-    @media screen and (max-width: ($bp-md - 1px)) {
-        display: none;
-    }
+  @media screen and (max-width: ($bp-md - 1px)) {
+    display: none;
+  }
 }
 
 .u-hidden-pc {
-    display: none;
+  display: none;
 
-    @media screen and (max-width: ($bp-md - 1px)) {
-        display: block;
-    }
+  @media screen and (max-width: ($bp-md - 1px)) {
+    display: block;
+  }
 }

@@ -1,34 +1,34 @@
 {
-    "global": {
-        "title": "Site Title",
-        "description": "ディスクリプションが入ります。",
-        "separator": " | "
+  "global": {
+    "title": "Site Title",
+    "description": "ディスクリプションが入ります。",
+    "separator": " | "
+  },
+  "pages": {
+    "/index.html": {
+      "title": "トップページ",
+      "description": "トップページです。"
     },
-    "pages": {
-        "/index.html": {
-            "title": "トップページ",
-            "description": "トップページです。"
-        },
-        "/news/index.html": {
-            "title": "お知らせ一覧",
-            "description": "最新のお知らせをご覧いただけます。"
-        },
-        "/news/detail/index.html": {
-            "title": "お知らせ詳細",
-            "description": "お知らせの詳細ページです。"
-        },
-        "/contact/index.html": {
-            "title": "お問い合わせ",
-            "description": "お問い合わせはこちらから。"
-        },
-        "/contact/confirm/index.html": {
-            "title": "お問い合わせ確認"
-        },
-        "/contact/complete/index.html": {
-            "title": "お問い合わせ完了"
-        },
-        "/404.html": {
-            "title": "ページが見つかりません"
-        }
+    "/news/index.html": {
+      "title": "お知らせ一覧",
+      "description": "最新のお知らせをご覧いただけます。"
+    },
+    "/news/detail/index.html": {
+      "title": "お知らせ詳細",
+      "description": "お知らせの詳細ページです。"
+    },
+    "/contact/index.html": {
+      "title": "お問い合わせ",
+      "description": "お問い合わせはこちらから。"
+    },
+    "/contact/confirm/index.html": {
+      "title": "お問い合わせ確認"
+    },
+    "/contact/complete/index.html": {
+      "title": "お問い合わせ完了"
+    },
+    "/404.html": {
+      "title": "ページが見つかりません"
     }
+  }
 }

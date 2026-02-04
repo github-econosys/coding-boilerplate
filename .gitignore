@@ -6,3 +6,6 @@ package-lock.json
 
 /.*
 !.gitignore
+!.vscode
+!.stylelintrc.json
+!.prettierrc

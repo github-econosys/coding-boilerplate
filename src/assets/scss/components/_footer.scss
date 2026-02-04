@@ -1,14 +1,14 @@
 .l-footer {
-    background: #f0f0f0;
-    padding: 20px 0;
-    margin-top: 40px;
+  padding: 20px 0;
+  margin-top: 40px;
+  background: #f0f0f0;
 
-    &__inner {
-        max-width: $bp-lg;
-        margin: 0 auto;
-        padding: 0 20px;
-        text-align: center;
-        color: #666;
-        font-size: 0.875rem;
-    }
+  &__inner {
+    max-width: $bp-lg;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-size: 0.875rem;
+    color: #666;
+    text-align: center;
+  }
 }

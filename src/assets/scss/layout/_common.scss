@@ -1,32 +1,32 @@
 // @use '../foundation/variable' as *;
 
 .l-container {
-    max-width: $bp-lg;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: $bp-lg;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 
 .l-main {
-    flex: 1; // Footerを下に押し下げる
-    padding: 60px 0; // 上下余白を少し増やす
+  flex: 1; // Footerを下に押し下げる
+  padding: 60px 0; // 上下余白を少し増やす
 
-    // コンテンツ内の共通見出しスタイル
-    h2 {
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 40px;
-        text-align: center;
-        font-weight: 700;
-        letter-spacing: 0.05em;
+  // コンテンツ内の共通見出しスタイル
+  h2 {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    letter-spacing: 0.05em;
 
-        // 下線デザイン
-        &::after {
-            content: "";
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: $color-main; // 変数利用
-            margin: 20px auto 0;
-        }
+    // 下線デザイン
+    &::after {
+      display: block;
+      width: 60px;
+      height: 3px;
+      margin: 20px auto 0;
+      content: '';
+      background-color: $color-main; // 変数利用
     }
+  }
 }

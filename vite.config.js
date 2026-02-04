@@ -4,6 +4,7 @@ import fs from 'fs';
 import { glob } from 'glob';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import sassGlobImports from 'vite-plugin-sass-glob-import';
+import autoprefixer from 'autoprefixer';
 
 // HTMLインポート用カスタムプラグイン
 const htmlIncludes = (command) => {
@@ -246,6 +247,11 @@ export default defineConfig(({ command }) => ({
         }
     },
     css: {
+        postcss: {
+            plugins: [
+                autoprefixer,
+            ],
+        },
         preprocessorOptions: {
             scss: {
                 api: 'modern-compiler',

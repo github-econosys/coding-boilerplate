@@ -1,19 +1,20 @@
 .p-home {
-    text-align: center;
-    padding: 80px 0; // トップページなので少し広めに
+  padding: 80px 0; // トップページなので少し広めに
+  text-align: center;
 
-    h2 {
-        font-size: 3rem; // メインビジュアル代わりのインパクト
-        margin-bottom: 30px;
-        color: #333;
-        // commonのh2スタイルを継承しつつ、サイズだけでかい
-    }
+  h2 {
+    margin-bottom: 30px;
+    font-size: 3rem; // メインビジュアル代わりのインパクト
+    color: #333;
 
-    p {
-        font-size: 1.25rem;
-        color: #555;
-        line-height: 2;
-        max-width: 800px;
-        margin: 0 auto;
-    }
+    // commonのh2スタイルを継承しつつ、サイズだけでかい
+  }
+
+  p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    line-height: 2;
+    color: #555;
+  }
 }

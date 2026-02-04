@@ -1,36 +1,38 @@
 .p-news {
-    padding-bottom: 80px;
+  padding-bottom: 80px;
 
-    // h2は _common.scss のスタイルを使用するため削除
+  // h2は _common.scss のスタイルを使用するため削除
 
-    &__list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        max-width: 800px;
-        margin: 0 auto; // 中央寄せ
+  &__list {
+    max-width: 800px;
+    padding: 0;
+    margin: 0;
+    margin: 0 auto; // 中央寄せ
+    list-style: none;
 
-        li {
-            border-bottom: 1px solid #e0e0e0;
+    li {
+      border-bottom: 1px solid #e0e0e0;
 
-            &:first-child {
-                border-top: 1px solid #e0e0e0;
-            }
+      &:first-child {
+        border-top: 1px solid #e0e0e0;
+      }
 
-            a {
-                display: flex;
-                align-items: center;
-                padding: 20px;
-                text-decoration: none;
-                color: #333;
-                transition: background-color 0.3s ease, color 0.3s ease;
+      a {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        color: #333;
+        text-decoration: none;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
 
-                &:hover {
-                    background-color: #f5faff;
-                    color: $color-main;
-                    padding-left: 25px; // ホバーで少し右に動く演出
-                }
-            }
+        &:hover {
+          padding-left: 25px; // ホバーで少し右に動く演出
+          color: $color-main;
+          background-color: #f5faff;
         }
+      }
     }
+  }
 }
